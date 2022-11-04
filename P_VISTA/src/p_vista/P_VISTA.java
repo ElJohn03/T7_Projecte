@@ -15,9 +15,6 @@ import javax.swing.JFrame;
  */
 public class P_VISTA extends javax.swing.JFrame {
 
-    /**
-     * Creates new form P_VISTA
-     */
     public P_VISTA() {
         initComponents();
         setTitle("Milà-Spotify");
