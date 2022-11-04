@@ -1,13 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package p_model;
+package org.milaifontanals.model;
 
-/**
- *
- * @author jonat
- */
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Artista{
     private long idArt;
     private String nom;
@@ -31,5 +26,12 @@ public abstract class Artista{
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+    
+    public List<Canso> getCansonsInterpretades(){
+        
+        List<Canso> llista = new ArrayList<Canso>();
+        
+        return llista;
     }
 }

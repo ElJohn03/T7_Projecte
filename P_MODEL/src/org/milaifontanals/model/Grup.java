@@ -2,25 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package p_model;
+package org.milaifontanals.model;
 
-/**
- *
- * @author jonat
- */
-public class Album extends Producte{
-    private int anyCreacio;
+import java.util.Date;
 
-    public Album(int anyCreacio, long id, String titol, boolean actiu) {
-        super(id, titol, actiu);
+public class Grup {
+    private Date anyCreacio;
+
+    public Grup(Date anyCreacio) {
         this.anyCreacio = anyCreacio;
     }
 
-    public int getAnyCreacio() {
+    public Date getAnyCreacio() {
         return anyCreacio;
     }
 
-    public void setAnyCreacio(int anyCreacio) {
+    public void setAnyCreacio(Date anyCreacio) {
         this.anyCreacio = anyCreacio;
     }
 }

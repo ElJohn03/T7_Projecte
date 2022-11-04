@@ -2,27 +2,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package p_model;
+package org.milaifontanals.model;
 
-/**
- *
- * @author jonat
- */
-public class Pais {
-    private String iso;
+public class Estil extends Producte{
+    private long idEstil;
     private String nom;
 
-    public Pais(String iso, String nom) {
-        this.iso = iso;
+    public Estil(long idEstil, String nom, long id, String titol, boolean actiu) {
+        super(id, titol, actiu);
+        this.idEstil = idEstil;
         this.nom = nom;
     }
 
-    public String getIso() {
-        return iso;
+    public long getIdEstil() {
+        return idEstil;
     }
 
-    public void setIso(String iso) {
-        this.iso = iso;
+    public void setIdEstil(long idEstil) {
+        this.idEstil = idEstil;
     }
 
     public String getNom() {

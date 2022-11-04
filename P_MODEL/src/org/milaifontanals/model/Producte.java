@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package p_model;
+package org.milaifontanals.model;
 
 /**
  *
@@ -41,5 +41,23 @@ public abstract class Producte {
 
     public void setActiu(boolean actiu) {
         this.actiu = actiu;
+    }
+    
+    @Override
+    public String toString() {
+        return "Producte{" + "id=" + id + ", titol=" + titol + ", actiu=" + actiu + '}';
+    }
+    
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 89 * hash + (int) (this.id ^ (this.id >>> 32));
+        return hash;
+    }
+    
+    public int getDuracio(){
+        int duracio = 0;
+        
+        return duracio;
     }
 }
