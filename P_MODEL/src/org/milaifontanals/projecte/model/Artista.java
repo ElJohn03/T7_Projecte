@@ -1,4 +1,4 @@
-package org.milaifontanals.model;
+package org.milaifontanals.projecte.model;
 
 import java.util.ArrayList;
 import java.util.List;

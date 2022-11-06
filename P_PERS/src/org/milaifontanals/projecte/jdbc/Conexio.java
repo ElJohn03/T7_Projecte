@@ -1,4 +1,4 @@
-package p_pers;
+package org.milaifontanals.projecte.jdbc;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -17,13 +17,16 @@ import java.util.Properties;
  * @author Jonathan
  */
 public class Conexio {
-
+    
+    //Creem la Connection
     private Connection con;
     
+    //Creem els PreparedStatements
     private PreparedStatement a;
+    private PreparedStatement b;
     
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public Conexio() throws ConexioException {
+        this("conexioJDBC.properties");
     }
     
 }
