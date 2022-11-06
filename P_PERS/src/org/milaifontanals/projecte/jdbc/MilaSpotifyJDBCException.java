@@ -4,9 +4,9 @@ package org.milaifontanals.projecte.jdbc;
  *
  * @author Jonathan
  */
-public class ConexioException extends Exception{
+public class MilaSpotifyJDBCException extends Exception{
     
-    public ConexioException(String message){
+    public MilaSpotifyJDBCException(String message){
         super(message);
     }
 }

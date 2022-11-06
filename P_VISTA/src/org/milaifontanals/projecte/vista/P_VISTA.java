@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import javax.accessibility.AccessibleAction;
 import javax.swing.JFrame;
 
-import org.milaifontanals.projecte.jdbc.;
 /**
  *
  * @author Usuari
