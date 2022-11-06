@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import javax.accessibility.AccessibleAction;
 import javax.swing.JFrame;
 
+import org.milaifontanals.projecte.jdbc.;
 /**
  *
  * @author Usuari
@@ -283,6 +284,7 @@ public class P_VISTA extends javax.swing.JFrame {
                 new P_VISTA().setVisible(true);
             }
         });
+        
     }
     //Variables manuals
     private javax.swing.JLabel catalegEstilsToDo;

@@ -1,5 +1,6 @@
 package org.milaifontanals.projecte.jdbc;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -25,8 +26,7 @@ public class Conexio {
     private PreparedStatement a;
     private PreparedStatement b;
     
-    public Conexio() throws ConexioException {
-        this("conexioJDBC.properties");
+    public static void program(String fitxerConfiguracio) {
+        program(new File(fitxerConfiguracio));
     }
-    
 }
