@@ -1,12 +1,15 @@
 package org.milaifontanals.projecte.vista;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import static java.lang.Thread.sleep;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.accessibility.AccessibleAction;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import org.milaifontanals.projecte.model.Client;
 import org.milaifontanals.projecte.jdbc.Persistencia;
 import org.milaifontanals.projecte.jdbc.PersistenciaException;
@@ -18,11 +21,13 @@ import org.milaifontanals.projecte.jdbc.PersistenciaException;
 public class P_VISTA extends javax.swing.JFrame {
     
     Persistencia pers = null;
+    JLabel informaCon = new JLabel();
     
     public P_VISTA() {
         initComponents();
         setTitle("Milà-Spotify");
         setLocationRelativeTo(null);
+        setResizable(false);
     }
     
     public void setConnexio(Persistencia cbd){
@@ -39,6 +44,7 @@ public class P_VISTA extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelPrincipal = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuCataleg = new javax.swing.JMenu();
         CatalegEstils = new javax.swing.JMenuItem();
@@ -57,15 +63,34 @@ public class P_VISTA extends javax.swing.JFrame {
 
         jPanelPrincipal.setPreferredSize(new java.awt.Dimension(700, 480));
 
+        jButton1.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
+        jButton1.setText("CONNECT");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton1MousePressed(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
         jPanelPrincipal.setLayout(jPanelPrincipalLayout);
         jPanelPrincipalLayout.setHorizontalGroup(
             jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                .addGap(256, 256, 256)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(256, Short.MAX_VALUE))
         );
         jPanelPrincipalLayout.setVerticalGroup(
             jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 472, Short.MAX_VALUE)
+            .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(282, Short.MAX_VALUE))
         );
 
         jMenuBar1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -234,9 +259,29 @@ public class P_VISTA extends javax.swing.JFrame {
 
     private void menuReproduccionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuReproduccionsMouseClicked
         menuReproduccions.setSelected(true);
-        establirConexio();
         Reproduccions();
     }//GEN-LAST:event_menuReproduccionsMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        boolean conEst = false;
+        conEst = establirConexio();
+        
+        if (conEst){
+            informaCon.setBounds(250, 300, 400, 50);
+            informaCon.setForeground(Color.GREEN);
+            informaCon.setText("Connexió establerta!");
+        }else{
+            informaCon.setForeground(Color.RED);
+            informaCon.setText("No s'ha pogut establir connexió... \n");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+        jPanelPrincipal.add(informaCon);
+        informaCon.setBounds(200, 300, 400, 50);
+        informaCon.setFont(new java.awt.Font("Consolas", 3, 20));
+        informaCon.setText("Establint connexió amb la BD...");
+    }//GEN-LAST:event_jButton1MousePressed
     
     //-------------------------CARREGAR DIFERENTS OPCIONS DEL MENU
     private void toDo(){
@@ -263,14 +308,16 @@ public class P_VISTA extends javax.swing.JFrame {
         jPanelPrincipal.revalidate();
         jPanelPrincipal.repaint();
     }
-    //-----------------------------------
     
-    private void establirConexio(){
+    //-----------------------------------
+    private boolean establirConexio(){
+        boolean establerta = true;
         try {
             pers = new Persistencia("conexioOracle.properties");
         } catch (PersistenciaException ex) {
-            System.out.println(ex.getMessage());
+            establerta = false;
         }
+        return establerta;
     }
     
     /**
@@ -306,10 +353,8 @@ public class P_VISTA extends javax.swing.JFrame {
                 new P_VISTA().setVisible(true);
             }
         });
-        
     }
     //Variables manuals
-    private javax.swing.JLabel catalegEstilsToDo;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem ArtistesArtistes;
@@ -319,6 +364,7 @@ public class P_VISTA extends javax.swing.JFrame {
     private javax.swing.JMenuItem ClientsClients;
     private javax.swing.JMenuItem ClientsEliminacio;
     private javax.swing.JMenuItem ClientsPaisos;
+    private javax.swing.JButton jButton1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanelPrincipal;
     private javax.swing.JMenu menuAjuda;
