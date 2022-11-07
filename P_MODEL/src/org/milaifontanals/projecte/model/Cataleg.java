@@ -8,16 +8,27 @@ package org.milaifontanals.projecte.model;
  *
  * @author jonat
  */
-public abstract class Producte {
+public abstract class Cataleg {
     private long id;
     private String titol;
     private boolean actiu;
+    private int estil;
+    private char tipus;
 
-    public Producte(long id, String titol, boolean actiu) {
+    public Cataleg(long id, String titol, boolean actiu, int estil, char tipus) {
         this.id = id;
         this.titol = titol;
         this.actiu = actiu;
+        this.estil = estil;
+        this.tipus = tipus;
     }
+
+    public Cataleg(long id, String titol) {
+        this.id = id;
+        this.titol = titol;
+    }
+    
+    
 
     public long getId() {
         return id;
@@ -42,10 +53,26 @@ public abstract class Producte {
     public void setActiu(boolean actiu) {
         this.actiu = actiu;
     }
-    
+
+    public int getEstil() {
+        return estil;
+    }
+
+    public void setEstil(int estil) {
+        this.estil = estil;
+    }
+
+    public char getTipus() {
+        return tipus;
+    }
+
+    public void setTipus(char tipus) {
+        this.tipus = tipus;
+    }
+
     @Override
     public String toString() {
-        return "Producte{" + "id=" + id + ", titol=" + titol + ", actiu=" + actiu + '}';
+        return "Cataleg{" + "id=" + id + ", titol=" + titol + ", actiu=" + actiu + ", estil=" + estil + ", tipus=" + tipus + '}';
     }
     
     @Override

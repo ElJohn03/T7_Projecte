@@ -1,19 +1,32 @@
 package org.milaifontanals.projecte.vista;
 
 import java.awt.BorderLayout;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.accessibility.AccessibleAction;
 import javax.swing.JFrame;
+import org.milaifontanals.projecte.model.Client;
+import org.milaifontanals.projecte.jdbc.Persistencia;
+import org.milaifontanals.projecte.jdbc.PersistenciaException;
 
 /**
  *
  * @author Usuari
  */
 public class P_VISTA extends javax.swing.JFrame {
-
+    
+    Persistencia pers = null;
+    
     public P_VISTA() {
         initComponents();
         setTitle("Milà-Spotify");
         setLocationRelativeTo(null);
+    }
+    
+    public void setConnexio(Persistencia cbd){
+        pers = cbd;
     }
 
     /**
@@ -220,8 +233,9 @@ public class P_VISTA extends javax.swing.JFrame {
     }//GEN-LAST:event_menuClientsMouseEntered
 
     private void menuReproduccionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuReproduccionsMouseClicked
-        Reproduccions();
         menuReproduccions.setSelected(true);
+        establirConexio();
+        Reproduccions();
     }//GEN-LAST:event_menuReproduccionsMouseClicked
     
     //-------------------------CARREGAR DIFERENTS OPCIONS DEL MENU
@@ -238,7 +252,8 @@ public class P_VISTA extends javax.swing.JFrame {
     }
     
     private void Reproduccions(){
-        ReproduccionsPanel p = new ReproduccionsPanel();
+        List<Client> clients = new ArrayList<Client>();
+        Reproduccions p = new Reproduccions();
         
         p.setSize(700, 472);
         p.setLocation(0, 0);
@@ -249,7 +264,15 @@ public class P_VISTA extends javax.swing.JFrame {
         jPanelPrincipal.repaint();
     }
     //-----------------------------------
-
+    
+    private void establirConexio(){
+        try {
+            pers = new Persistencia("conexioOracle.properties");
+        } catch (PersistenciaException ex) {
+            Logger.getLogger(P_VISTA.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */

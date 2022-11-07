@@ -8,11 +8,11 @@ package org.milaifontanals.projecte.model;
  *
  * @author jonat
  */
-public class Album extends Producte{
+public class Album extends Cataleg{
     private int anyCreacio;
 
-    public Album(int anyCreacio, long id, String titol, boolean actiu) {
-        super(id, titol, actiu);
+    public Album(int anyCreacio, long id, String titol) {
+        super(id, titol);
         this.anyCreacio = anyCreacio;
     }
 

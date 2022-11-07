@@ -4,9 +4,9 @@ package org.milaifontanals.projecte.jdbc;
  *
  * @author Jonathan
  */
-public class MilaSpotifyJDBCException extends Exception{
+public class PersistenciaException extends Exception{
     
-    public MilaSpotifyJDBCException(String message){
+    public PersistenciaException(String message){
         super(message);
     }
 }

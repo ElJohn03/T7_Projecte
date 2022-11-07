@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package org.milaifontanals.projecte.model;
 
 import java.util.Date;
@@ -30,6 +26,17 @@ public class Client {
         this.cp = cp;
         this.dom1 = dom1;
         this.poblacio = poblacio;
+    }
+
+    public Client(long id, String nom, String cognoms) {
+        this.id = id;
+        this.nom = nom;
+        this.cognoms = cognoms;
+    }
+    
+    public Client(long id, String nom) {
+        this.id = id;
+        this.nom = nom;
     }
     
     public Client(long id) {

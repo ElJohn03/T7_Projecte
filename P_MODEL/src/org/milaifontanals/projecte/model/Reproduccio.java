@@ -6,12 +6,17 @@ import java.util.Date;
 public class Reproduccio{
     private Date timestamp;
     private Client idCli;
-    private Producte idProd;
+    private Cataleg idProd;
 
-    public Reproduccio(Date timestamp, Client idCli, Producte idProd) {
+    public Reproduccio(Date timestamp, Client idCli, Cataleg idProd) {
         this.timestamp = timestamp;
         this.idCli = idCli;
         this.idProd = idProd;
+    }
+    
+    public Reproduccio(Date timestamp, Client idCli) {//Proba
+        this.timestamp = timestamp;
+        this.idCli = idCli;
     }
 
     public String getTimestamp() {
@@ -36,11 +41,11 @@ public class Reproduccio{
         this.idCli = idCli;
     }
 
-    public Producte getIdProd() {
+    public Cataleg getIdProd() {
         return idProd;
     }
 
-    public void setIdProd(Producte idProd) {
+    public void setIdProd(Cataleg idProd) {
         this.idProd = idProd;
     }
 }

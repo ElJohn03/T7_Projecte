@@ -8,12 +8,12 @@ package org.milaifontanals.projecte.model;
  *
  * @author jonat
  */
-public class Canso extends Producte{
+public class Canso extends Cataleg{
     private int anyCreacio;
     private long durada;
 
-    public Canso(int anyCreacio, long durada, long id, String titol, boolean actiu) {
-        super(id, titol, actiu);
+    public Canso(int anyCreacio, long durada, long id, String titol) {
+        super(id, titol);
         this.anyCreacio = anyCreacio;
         this.durada = durada;
     }

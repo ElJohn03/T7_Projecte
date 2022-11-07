@@ -1,23 +1,20 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package org.milaifontanals.projecte.vista;
 
-import javax.swing.ImageIcon;
-import javax.swing.*;
-import java.awt.*;
-
 /**
  *
- * @author Usuari
+ * @author jonat
  */
-public class ReproduccionsPanel extends javax.swing.JPanel {
-    
-    public ReproduccionsPanel() {
+public class Reproduccions extends javax.swing.JPanel {
+
+    /**
+     * Creates new form Reproduccions
+     */
+    public Reproduccions() {
         initComponents();
-        initManualComponents();
     }
 
     /**
@@ -29,11 +26,11 @@ public class ReproduccionsPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jToolBar1 = new javax.swing.JToolBar();
+        jPanel1 = new javax.swing.JPanel();
         bg = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         IDClientFiltres_Label = new javax.swing.JLabel();
         IDClientFiltres_CB = new javax.swing.JComboBox<>();
         IDCatalegFiltres_Label = new javax.swing.JLabel();
@@ -54,9 +51,7 @@ public class ReproduccionsPanel extends javax.swing.JPanel {
         ImprimirFiltres_Button = new javax.swing.JButton();
         Data_JCalendar = new com.toedter.calendar.JDateChooser();
 
-        jToolBar1.setRollover(true);
-
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -104,8 +99,8 @@ public class ReproduccionsPanel extends javax.swing.JPanel {
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "FILTRES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Consolas", 0, 12))); // NOI18N
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "FILTRES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Consolas", 0, 12))); // NOI18N
 
         IDClientFiltres_Label.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
         IDClientFiltres_Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -133,44 +128,44 @@ public class ReproduccionsPanel extends javax.swing.JPanel {
         DataFiltres_Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         DataFiltres_Label.setText("Datas");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(IDClientFiltres_Label))
                     .addComponent(IDClientFiltres_CB, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(IDCatalegFiltres_Label)
                         .addGap(51, 51, 51)
                         .addComponent(DataFiltres_Label))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(IDCatalegFiltres_CB, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Data_JCalendar2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Data_JCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(42, 42, 42))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(IDClientFiltres_Label)
                         .addComponent(IDCatalegFiltres_Label))
                     .addComponent(DataFiltres_Label))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(IDCatalegFiltres_CB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(IDClientFiltres_CB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(Data_JCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9)))
                 .addComponent(Data_JCalendar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -223,7 +218,7 @@ public class ReproduccionsPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(bgLayout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(BuscarFiltres_Button)
@@ -256,7 +251,7 @@ public class ReproduccionsPanel extends javax.swing.JPanel {
                                             .addComponent(IDCataleg_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(IDClient_Label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
-                                                .addGap(0, 141, Short.MAX_VALUE)
+                                                .addGap(0, 120, Short.MAX_VALUE)
                                                 .addComponent(Pestaña_Label)))))
                                 .addContainerGap())
                             .addGroup(bgLayout.createSequentialGroup()
@@ -272,7 +267,7 @@ public class ReproduccionsPanel extends javax.swing.JPanel {
                     .addGroup(bgLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(bgLayout.createSequentialGroup()
                         .addComponent(Pestaña_Label)
                         .addGap(40, 40, 40)
@@ -299,11 +294,40 @@ public class ReproduccionsPanel extends javax.swing.JPanel {
                                     .addComponent(BuscarFiltres_Button))
                                 .addGap(18, 18, 18)
                                 .addComponent(ImprimirFiltres_Button)))))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
-        add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 480));
+        jPanel1.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 480));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 480, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void IDClientFiltres_CBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDClientFiltres_CBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IDClientFiltres_CBActionPerformed
+
+    private void IDCatalegFiltres_CBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDCatalegFiltres_CBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IDCatalegFiltres_CBActionPerformed
 
     private void IDClient_CBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDClient_CBActionPerformed
         // TODO add your handling code here:
@@ -313,17 +337,6 @@ public class ReproduccionsPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_IDCataleg_CBActionPerformed
 
-    private void IDClientFiltres_CBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDClientFiltres_CBActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_IDClientFiltres_CBActionPerformed
-
-    private void IDCatalegFiltres_CBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDCatalegFiltres_CBActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_IDCatalegFiltres_CBActionPerformed
-    
-    public void initManualComponents(){
-
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Actualitzar_Button;
@@ -347,8 +360,8 @@ public class ReproduccionsPanel extends javax.swing.JPanel {
     private javax.swing.JLabel Pestaña_Label;
     private javax.swing.JPanel bg;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }

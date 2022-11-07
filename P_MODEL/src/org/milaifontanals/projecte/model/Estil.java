@@ -4,14 +4,17 @@
  */
 package org.milaifontanals.projecte.model;
 
-public class Estil extends Producte{
+public class Estil{
     private long idEstil;
     private String nom;
 
-    public Estil(long idEstil, String nom, long id, String titol, boolean actiu) {
-        super(id, titol, actiu);
+    public Estil(long idEstil, String nom) {
         this.idEstil = idEstil;
         this.nom = nom;
+    }
+
+    public Estil(int aInt, String string) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public long getIdEstil() {
