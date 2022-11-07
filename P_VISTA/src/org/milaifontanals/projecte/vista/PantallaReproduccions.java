@@ -12,11 +12,11 @@ import org.milaifontanals.projecte.jdbc.PersistenciaException;
  *
  * @author jonat
  */
-public class Reproduccions extends javax.swing.JPanel {
+public class PantallaReproduccions extends javax.swing.JPanel {
 
     Persistencia pers = null;    
     
-    public Reproduccions() {
+    public PantallaReproduccions() {
         initComponents();
         
     }

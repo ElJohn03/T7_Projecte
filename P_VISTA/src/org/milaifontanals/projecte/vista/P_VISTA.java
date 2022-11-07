@@ -25,6 +25,7 @@ public class P_VISTA extends javax.swing.JFrame {
     
     public P_VISTA() {
         initComponents();
+        initManualComponents();
         setTitle("Milà-Spotify");
         setLocationRelativeTo(null);
         setResizable(false);
@@ -88,14 +89,15 @@ public class P_VISTA extends javax.swing.JFrame {
         jPanelPrincipalLayout.setVerticalGroup(
             jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                .addGap(94, 94, 94)
+                .addGap(137, 137, 137)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(282, Short.MAX_VALUE))
+                .addContainerGap(239, Short.MAX_VALUE))
         );
 
         jMenuBar1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         menuCataleg.setText("Catàleg");
+        menuCataleg.setEnabled(false);
         menuCataleg.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         menuCataleg.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -124,6 +126,7 @@ public class P_VISTA extends javax.swing.JFrame {
         jMenuBar1.add(menuCataleg);
 
         menuReproduccions.setText("Reproduccions");
+        menuReproduccions.setEnabled(false);
         menuReproduccions.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         menuReproduccions.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -133,6 +136,7 @@ public class P_VISTA extends javax.swing.JFrame {
         jMenuBar1.add(menuReproduccions);
 
         menuArtistes.setText("Artistes");
+        menuArtistes.setEnabled(false);
         menuArtistes.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         menuArtistes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -161,6 +165,7 @@ public class P_VISTA extends javax.swing.JFrame {
         jMenuBar1.add(menuArtistes);
 
         menuClients.setText("Clients");
+        menuClients.setEnabled(false);
         menuClients.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         menuClients.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -198,6 +203,7 @@ public class P_VISTA extends javax.swing.JFrame {
         jMenuBar1.add(menuClients);
 
         menuAjuda.setText("Ajuda");
+        menuAjuda.setEnabled(false);
         menuAjuda.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jMenuBar1.add(menuAjuda);
 
@@ -258,18 +264,24 @@ public class P_VISTA extends javax.swing.JFrame {
     }//GEN-LAST:event_menuClientsMouseEntered
 
     private void menuReproduccionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuReproduccionsMouseClicked
-        menuReproduccions.setSelected(true);
         Reproduccions();
     }//GEN-LAST:event_menuReproduccionsMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         boolean conEst = false;
         conEst = establirConexio();
-        
+        jButton1.setVisible(false);
         if (conEst){
-            informaCon.setBounds(250, 300, 400, 50);
+            informaCon.setFont(new java.awt.Font("Consolas", 2, 30));
+            informaCon.setBounds(180, 200, 400, 50);
             informaCon.setForeground(Color.GREEN);
             informaCon.setText("Connexió establerta!");
+            menuCataleg.setVisible(true);
+            menuReproduccions.setVisible(true);
+            menuReproduccions.setEnabled(true);
+            menuArtistes.setVisible(true);
+            menuClients.setVisible(true);
+            menuAjuda.setVisible(true);
         }else{
             informaCon.setForeground(Color.RED);
             informaCon.setText("No s'ha pogut establir connexió... \n");
@@ -278,10 +290,18 @@ public class P_VISTA extends javax.swing.JFrame {
 
     private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
         jPanelPrincipal.add(informaCon);
-        informaCon.setBounds(200, 300, 400, 50);
-        informaCon.setFont(new java.awt.Font("Consolas", 3, 20));
+        informaCon.setBounds(190, 300, 400, 50);
+        informaCon.setFont(new java.awt.Font("Consolas", 2, 20));
         informaCon.setText("Establint connexió amb la BD...");
     }//GEN-LAST:event_jButton1MousePressed
+    
+    public void initManualComponents(){
+        menuCataleg.setVisible(false);
+        menuAjuda.setVisible(false);
+        menuArtistes.setVisible(false);
+        menuClients.setVisible(false);
+        menuReproduccions.setVisible(false);
+    }
     
     //-------------------------CARREGAR DIFERENTS OPCIONS DEL MENU
     private void toDo(){
@@ -298,7 +318,7 @@ public class P_VISTA extends javax.swing.JFrame {
     
     private void Reproduccions(){
         List<Client> clients = new ArrayList<Client>();
-        Reproduccions p = new Reproduccions();
+        PantallaReproduccions p = new PantallaReproduccions();
         
         p.setSize(700, 472);
         p.setLocation(0, 0);
