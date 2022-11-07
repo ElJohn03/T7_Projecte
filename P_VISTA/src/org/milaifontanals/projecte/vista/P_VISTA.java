@@ -269,7 +269,7 @@ public class P_VISTA extends javax.swing.JFrame {
         try {
             pers = new Persistencia("conexioOracle.properties");
         } catch (PersistenciaException ex) {
-            Logger.getLogger(P_VISTA.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
     }
     
