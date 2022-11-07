@@ -5,22 +5,35 @@
 package org.milaifontanals.projecte.vista;
 
 import java.awt.BorderLayout;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 import org.milaifontanals.projecte.jdbc.Persistencia;
 import org.milaifontanals.projecte.jdbc.PersistenciaException;
+import org.milaifontanals.projecte.model.Cataleg;
+import org.milaifontanals.projecte.model.Client;
+import org.milaifontanals.projecte.model.Estil;
+import org.milaifontanals.projecte.model.Reproduccio;
 
 /**
  *
  * @author jonat
  */
 public class PantallaReproduccions extends javax.swing.JPanel {
-
-    Persistencia pers = null;    
+    
+    Persistencia pers = null; 
+    P_VISTA vista = new P_VISTA();   
     
     public PantallaReproduccions() {
         initComponents();
+        establirConexio();
+        ompleTaula();
         
+        carregaClients();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,14 +48,14 @@ public class PantallaReproduccions extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        IDClientFiltres_Label = new javax.swing.JLabel();
+        ClientFiltres_Label = new javax.swing.JLabel();
         IDClientFiltres_CB = new javax.swing.JComboBox<>();
         IDCatalegFiltres_Label = new javax.swing.JLabel();
         IDCatalegFiltres_CB = new javax.swing.JComboBox<>();
         DataFiltres_Label = new javax.swing.JLabel();
         Data_JCalendar1 = new com.toedter.calendar.JDateChooser();
         Data_JCalendar2 = new com.toedter.calendar.JDateChooser();
-        IDClient_Label = new javax.swing.JLabel();
+        Client_Label = new javax.swing.JLabel();
         IDClient_CB = new javax.swing.JComboBox<>();
         Data_Label = new javax.swing.JLabel();
         IDCataleg_Label = new javax.swing.JLabel();
@@ -106,11 +119,10 @@ public class PantallaReproduccions extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "FILTRES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Consolas", 0, 12))); // NOI18N
 
-        IDClientFiltres_Label.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
-        IDClientFiltres_Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        IDClientFiltres_Label.setText("ID Client");
+        ClientFiltres_Label.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        ClientFiltres_Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ClientFiltres_Label.setText("Client");
 
-        IDClientFiltres_CB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15" }));
         IDClientFiltres_CB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IDClientFiltres_CBActionPerformed(evt);
@@ -138,10 +150,10 @@ public class PantallaReproduccions extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(IDClientFiltres_CB, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(IDClientFiltres_Label))
-                    .addComponent(IDClientFiltres_CB, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addComponent(ClientFiltres_Label)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -161,7 +173,7 @@ public class PantallaReproduccions extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(IDClientFiltres_Label)
+                        .addComponent(ClientFiltres_Label)
                         .addComponent(IDCatalegFiltres_Label))
                     .addComponent(DataFiltres_Label))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -175,11 +187,10 @@ public class PantallaReproduccions extends javax.swing.JPanel {
                 .addComponent(Data_JCalendar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        IDClient_Label.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
-        IDClient_Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        IDClient_Label.setText("ID Client");
+        Client_Label.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        Client_Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Client_Label.setText("Client");
 
-        IDClient_CB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15" }));
         IDClient_CB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IDClient_CBActionPerformed(evt);
@@ -241,27 +252,27 @@ public class PantallaReproduccions extends javax.swing.JPanel {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(bgLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Data_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(IDCataleg_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Client_Label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
+                                        .addGap(0, 120, Short.MAX_VALUE)
+                                        .addComponent(Pestaña_Label))))
+                            .addGroup(bgLayout.createSequentialGroup()
                                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(bgLayout.createSequentialGroup()
                                         .addGap(78, 78, 78)
-                                        .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(IDCataleg_CB, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(IDClient_CB, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE))
+                                        .addComponent(IDCataleg_CB, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(bgLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(Data_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(IDCataleg_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(IDClient_Label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
-                                                .addGap(0, 120, Short.MAX_VALUE)
-                                                .addComponent(Pestaña_Label)))))
-                                .addContainerGap())
-                            .addGroup(bgLayout.createSequentialGroup()
-                                .addGap(61, 61, 61)
-                                .addComponent(Data_JCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                        .addGap(61, 61, 61)
+                                        .addComponent(Data_JCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(bgLayout.createSequentialGroup()
+                                        .addGap(62, 62, 62)
+                                        .addComponent(IDClient_CB, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 51, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         bgLayout.setVerticalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,7 +286,7 @@ public class PantallaReproduccions extends javax.swing.JPanel {
                     .addGroup(bgLayout.createSequentialGroup()
                         .addComponent(Pestaña_Label)
                         .addGap(40, 40, 40)
-                        .addComponent(IDClient_Label)
+                        .addComponent(Client_Label)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(IDClient_CB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38)
@@ -298,7 +309,7 @@ public class PantallaReproduccions extends javax.swing.JPanel {
                                     .addComponent(BuscarFiltres_Button))
                                 .addGap(18, 18, 18)
                                 .addComponent(ImprimirFiltres_Button)))))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         jPanel1.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 480));
@@ -362,11 +373,55 @@ public class PantallaReproduccions extends javax.swing.JPanel {
         bg.revalidate();
         bg.repaint();
     }
+    
+    
+    public void carregaClients(){
+        List<Client> clients = new ArrayList<Client>();
+        try {
+            clients = pers.llistaClients();
+        } catch (PersistenciaException ex) {
+            Logger.getLogger(PantallaReproduccions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        for(Client e: clients){
+            IDClient_CB.addItem(e.mostraNom());
+            IDClientFiltres_CB.addItem(e.mostraNom());
+        }
+    }
+    
+    /*
+    public void carregaCataleg(){
+        List<Cataleg> cataleg = new ArrayList<Cataleg>();
+        try {
+            cataleg = pers.get
+        } catch (PersistenciaException ex) {
+            Logger.getLogger(PantallaReproduccions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        for(Cataleg e: cataleg){
+            IDClient_CB.addItem(e.mostraNom());
+            IDClientFiltres_CB.addItem(e.mostraNom());
+        }
+    }
+    */    
+
+    public void ompleTaula(){
+        DefaultTableModel  model = new DefaultTableModel();
+        
+        model.addColumn("ID Client");
+        model.addColumn("Data");
+        model.addColumn("ID Catàleg");
+        model.addColumn("Títol");
+        
+        
+        
+        jTable1.setModel(model);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Actualitzar_Button;
     private javax.swing.JButton Borrar_Button;
     private javax.swing.JButton BuscarFiltres_Button;
+    private javax.swing.JLabel ClientFiltres_Label;
+    private javax.swing.JLabel Client_Label;
     private javax.swing.JButton Crear_Button;
     private javax.swing.JLabel DataFiltres_Label;
     private com.toedter.calendar.JDateChooser Data_JCalendar;
@@ -378,9 +433,7 @@ public class PantallaReproduccions extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> IDCataleg_CB;
     private javax.swing.JLabel IDCataleg_Label;
     private javax.swing.JComboBox<String> IDClientFiltres_CB;
-    private javax.swing.JLabel IDClientFiltres_Label;
     private javax.swing.JComboBox<String> IDClient_CB;
-    private javax.swing.JLabel IDClient_Label;
     private javax.swing.JButton ImprimirFiltres_Button;
     private javax.swing.JLabel Pestaña_Label;
     private javax.swing.JPanel bg;

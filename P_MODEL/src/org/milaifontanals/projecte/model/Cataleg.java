@@ -69,6 +69,10 @@ public abstract class Cataleg {
     public void setTipus(char tipus) {
         this.tipus = tipus;
     }
+    
+    public String mostraTitol(){
+        return titol;
+    }
 
     @Override
     public String toString() {

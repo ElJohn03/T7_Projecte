@@ -126,4 +126,15 @@ public class Client {
     public void setPoblacio(String poblacio) {
         this.poblacio = poblacio;
     }
+
+    public String mostraNom() {
+        return nom;
+    }
+
+    @Override
+    public String toString() {
+        return nom;
+    }
+    
+    
 }

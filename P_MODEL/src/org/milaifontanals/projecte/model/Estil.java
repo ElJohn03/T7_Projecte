@@ -13,10 +13,6 @@ public class Estil{
         this.nom = nom;
     }
 
-    public Estil(int aInt, String string) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
     public long getIdEstil() {
         return idEstil;
     }
@@ -31,5 +27,10 @@ public class Estil{
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    @Override
+    public String toString() {
+        return idEstil + " - " + nom;
     }
 }

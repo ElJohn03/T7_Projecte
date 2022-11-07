@@ -12,6 +12,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import org.milaifontanals.projecte.model.Cataleg;
 import org.milaifontanals.projecte.model.Client;
 import org.milaifontanals.projecte.model.Estil;
 import org.milaifontanals.projecte.model.Reproduccio;
@@ -93,13 +94,40 @@ public class Persistencia {
         return estils;
     }
     
+    /*
+    public List<Estil> getCatalegNoms() throws PersistenciaException{
+        List <Cataleg> estils = new ArrayList<Cataleg>();
+        Statement q = null;
+        
+        try{
+            q = con.createStatement();
+            ResultSet rs = q.executeQuery("select cataleg_titol from cataleg");
+            while(rs.next()){
+                //estils.add(new Estil(rs.getInt("estil_id"), rs.getString("estil_nom")));
+            }
+            rs.close();
+        } catch (SQLException e){
+            throw new PersistenciaException("NO S'HA POGUT RECUPERAR ELS ESTILS: " + e.getMessage() + "\n");
+        }finally{
+            if (q != null){
+                try{
+                    q.close();
+                } catch (SQLException e){
+                    throw new PersistenciaException ("NO S'HA POGUT TANCAR LA QUERY DE getEstils(): " + e.getMessage() + "\n");
+                }
+            }
+        }
+        
+        return estils;
+    }
+    */    
+
     //Agafar Clients i omplir Vista
     public List<Client> llistaClients() throws PersistenciaException{
         List<Client> clients = new ArrayList<Client>();
         Statement q = null;
         
         try{
-            
            q = con.createStatement();
            ResultSet rs = q.executeQuery("select client_id, client_nom, client_cognoms from client");
            while(rs.next()){
@@ -199,6 +227,7 @@ public class Persistencia {
             System.out.println(repro.get(i).getIdCli().getId()+"-------"+repro.get(i).getTimestamp());
         }
     }
+
     
     //Omple la taula Reproduccio
     public List<Reproduccio> contingutTaula() throws PersistenciaException{

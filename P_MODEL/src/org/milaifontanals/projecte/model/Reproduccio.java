@@ -13,7 +13,7 @@ public class Reproduccio{
         this.idCli = idCli;
         this.idProd = idProd;
     }
-    
+
     public Reproduccio(Date timestamp, Client idCli) {//Proba
         this.timestamp = timestamp;
         this.idCli = idCli;
@@ -48,4 +48,11 @@ public class Reproduccio{
     public void setIdProd(Cataleg idProd) {
         this.idProd = idProd;
     }
+
+    @Override
+    public String toString() {
+        return "Reproduccio{" + "timestamp=" + timestamp + ", idCli=" + idCli + ", idProd=" + idProd + '}';
+    }
+    
+    
 }

@@ -31,8 +31,10 @@ public class P_VISTA extends javax.swing.JFrame {
         setResizable(false);
     }
     
-    public void setConnexio(Persistencia cbd){
-        pers = cbd;
+    public Persistencia setConnexio(Persistencia cbd){
+        cbd = pers;
+        
+        return cbd;
     }
 
     /**
